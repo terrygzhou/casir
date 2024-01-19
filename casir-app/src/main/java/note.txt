@@ -1,0 +1,417 @@
+Important notes.
+
+There are a number of options for reducing the MC footprints or improve effeciency.
+option 1.
+reachability graph compression e.g. partial order reduction
+
+option 2. 
+Petri net unfolding
+
+option 3
+``compositional verification''
+
+option 4.
+modular verification
+assume-guarantee verification
+
+option 5.
+abstract interpretation
+- simplify by abstraction
+
+
+1. Identify four interface places
+	the four special places can be differentiated by reachability between inbound and outbound places??
+	DONE. By specifying the interface place & transition names explicitly.
+
+1.1 Can a user input a algebra based process that can be presented in terms of CSN?	
+1.2 Cancellation input is modelled as an interface place in a Simplified/Elementary CSN, therefore, there are more than 4 interface places for one CSN.
+
+	
+2. Incorporate environments into compensableServiceNet
+2.1 Is this necessary for the highest level component?
+2.2 Should cancellation be enabled at each elementary CSN level?
+
+3. Automate the specification in terms of LTL asserts
+	The specification should be input by users/developer by assuming they have LTL skills. 
+	OR through some GUI (menu, assistence etc.) provide by this framework.
+	
+4. Set observable actions for compensable services, make connection between pip2 and fsp
+	The internal component's behaviours should also be observable for users to define (in)consistencies.
+
+	
+5. Differentiate the transition names from the components for fsp expressions
+	DONE. Solution:	a, using prefix (PNML Name as the prefix) for each transition and places OR	b, rename by manual 
+
+6. a casestudy of service behaviour consistency
+
+7 transition names need to be normalized for fluents and asserts definition
+	DONE.
+	when: at the first time initialising dataLayer object? because if nomarlized at "merge", the 
+	what: put pnmlName as prefix? if two same pnmlName, then use number as prefix.
+	
+8. Model parallel-or operator in PIPE2, then what about exception handler?
+	Can the inhibitor arcs be used?
+
+9. More than two services are composed in parallel or inner-choice?? 
+	we have to work out the modelling composition and specification automation. 
+	From BPEL perspective, each component should has the corresponding compensation action defined, and the higher level environment/component should 
+	be able to invoke their compensation activities when necessary.
+
+10. How to model alternative forward recovery with global compensation/cancellation? 
+	Partially DONE. Alternative forward model is done at PIPE2, the rest tasks are: 1> create alternativeForwardRecover operator; 
+	2> create (in)consistency specification for this operator.
+	Not sure what's the exactly meaning for this operator. need correct case study.
+	
+	
+11. How to model parallel OR?
+	see the point 8.
+
+12. Safe checking in PIPE2 may not be correct, further investigation or rewriting is in needed. 
+	safe should be 1-bounded in PIPE2.
+
+13. Make ServiceNet, SimplifiedCompensableServiceNet, and CompositeCompensableServiceNet
+	Done
+
+14. Simplified Serivce Net testing including: safe, bounded, safe and confusion free (or choice free)
+	safe, confusion free may not be realizable in composite compensable service net (CCSN).
+	Must they be safe, bounded and confusion free?
+
+15. Resolve the state explosion problem when generating RG.
+	p/t reduction for small nets
+	take hierarchichal RG for pn
+	Can we use other analysis methods without going through the RG?
+	
+	
+16. Provide summarised report such as the probability of inconsistent execution, label cost of (places, or transitions) service remedy.	
+  	Not sound, because the failure of each component/operation may vary.
+  
+17. Report inconsistency occurrence rate and max/min cost for remedy.
+	The parameterised cost calculaton algorithem for petri nets should be done.
+
+18. modelling cost
+	starting from the simplest modelling: label transition to cost.
+	Cost modelling is done post of service net modelling?
+	
+	
+19. Compose the CSN from the algebraic expression input by users
+	TBD
+	
+
+20. Draw the composite CSN in terms of dot.
+
+
+Contributions
+1. support cancellation semantics from global scope
+2. 
+
+Question
+1. without extracting all the paths for the model checking, can we model checking the structure directly?
+2. without using petri net to represent the compensable service net, which model/algebra can be suitable for modelling? and such model is easy for 
+	model checking.
+3. Are there any relationships between the local costs and global costs?
+4. Is it possible and if yes then how to analyse the global behaviours by analysing the complete local behaviours? 
+5. Is it possible to map inconsistent states from model checking back to the reachability graph and explicit in dot?
+6. if No.5 is possible, then can we find some duplicated model checking that can be removed to improve efficiency?
+
+
+
+ 
+ From Heinz:
+ Subtasks suggested as follows,
+ 1. Simplicity Test including A) Acyclic with minimal element in P and initial marking minimal elements, B) bounded C) safe D) L-1-live 
+ 	E) confusion free
+ 2. Simplified Service Net composition (SSN) is validated by SSN
+ 3. Simplified Compensable Service Net (CSCN)
+ 	2.1 composition of CSCN is validated by SSN
+ 	2.2 composition of CSCN is CSCN of composition of SSNs.
+ 
+ service net with compensations
+ 	parallel(model done)
+ 	sequence (model done)
+ 	innerchoice 
+ 	alternativeForwardRecover (modelling)
+ 	
+ uncompensble tasks:
+ 	not necessary type: query a result etc.	use "skip" to interpret the compensation activity.
+ 	not possible type:	print a document etc. use deadlock to represent the compensation? which may need to expose the deadlock place to environment?
+ 
+case study from 'looking into compensable transactions' 
+
+ 
+ Cost representation
+ Cost accounts can be represented as distinguished place???
+ 
+ Define a format of assigning both non-recoverable and coverable costs with transitions. How???
+ 	When introducing a fail place due to irreservable transitions, a deadlock may occur. Can we use net composition to resolve such deadlock? 
+ 	
+ 
+ 
+ problem:
+ 1. I meet the situation in alternative forward recovery such like there are multiple transport transitions for receiving input/cancel or sending abt/out? 
+ So shall I relax the restriction from single transport transition to multiple transitions for each interface place? or extend more transition-place
+ pairs for ensuring single transition for each interface place?
+ 2. how to define the in/consistency properties for alternative forward recovery?
+ 
+ 
+ improvements to be done.
+ 1.composition operators will support from the pairwise to multiple components composition
+ 2.irreversable behaviours support
+ 3.state exploration problem, how to divide and conque? say e.g. we extract all remedy paths locally, and we don't includee these paths for 
+ the higher levels consistency checking, however, when the high level consistency checking results obtained, we can combine/assemble them 
+ together for constructing the global remedy path?? can we use high-level petri net verification theory?
+ 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+From 12 Sept. 2012
+
+comments on coding
+
+* getter and setter need to be done in DataLayer for creating a PN from code rather than from loading a file. that includes the following tasks
+	1. getter and setter on Place
+	2. getter and setter on Transition
+	3. getter and setter on Arc
+	4. not sure on markings so far
+* However by reviewing DataLayer, reading a PMNL file to generate a PN is realistic way here.
+* where to load and manage these prepared PMNL files? A: set in the setup() by each test/client classes.
+
+_________________________________________________________________________________________________________________________________________________
+
+24 Jan. 2013
+To do list
+. Semiring based parameterised cost specificaiton (Partially DONE, handle dollar/energy cost model?)
+. integration with LTSA for model checking (DONE)
+. MDG should work on the copy: deepcopy VS. clone still not clear 
+. Concatenation should work on the copy, not implemented yet.
+. annotating cost to LTSA-MSC traces (DONE)
+. From DependenceGraph to MSC(BasicMSC or BMSC)
+. The extension actions need to be updated when asserts are appended where the new actions are introduced in the alphabet. (DONE) 
+. If an action is removed from the process, that action must be added in the extension alphabet of that process unless the assert has removed that action.
+. getMDG() has bugs on the duplicated labels.
+
+Improvement
+DependenceGraph dependence relation contains duplicated elements, should be unique.(DONE)
+
+
+=================================================================================================================================================
+27 Feb. 2013
+Questions
+. how to handle cyclic hMSC specification e.g. samples2/MSC/paypal3.xml?
+. ASSUME A PROBABILITY OF FAILURE AND A PROBABILITY OF EXECUTING AN ACTION IN RETRY, THEN HOW TO CACULATE A RELIABILITY OF A COST-AWARE RECOVERY?
+
+Improvements
+. reconsider the data structure of DependenceGraph (trace) where the arc and inArc/outArc of a node seems to be duplicated and hard to maintain.
+. translate trace to MSCs or a collection of bMSCs in concatenation.
+. For recovery strategies, they can be composed to form a complex recovery strategy s.t. an inconsistency can be recovered.
+
+
+=================================================================================================================================================
+July 30, 2013
+* the following changes have been updated to the bitbucket
+	- remove the packages: editor, gov, ic and ltlcheck, and backup them in zip files
+	- import the original ltsa.jar
+* clone must be deepcopy
+* make the casestudy and report diagrams configurable
+
+
+
+Aug 12, 2013
+
+* Need to remove the package lts by working on the class Relation.normalise()
+* get good progress by using ltsa_svn.jar which is compiled from the ltsa subversion code rather than the jar used in ltsa-msc
+* Refactory the previous CASIR's checkConsistency by adding a reflection layer LTSA without changing the HPWindow and its associated classes. 
+
+
+
+
+Oct. 26, 2013
+
+Some ideas
+	- revise msc xml schema without to annotate additional properties at attributes.
+		- label, probability for transitions of hMSC elements,
+		- costs for input/output of instances
+		- instance type to indicate the composite or preliminary components
+	- make MSC concatenation visible to XML s.t. it can be the input for LTSA-MSC FSP components modeling.
+	- The follow functions may be needed
+		- check whether a refinement component is correct/valid of a composite abstract component.
+		- Given two MSC XML specifications, merge them as a semantical concatenation, and being represented in XML. (merge the file xml elements)
+		- from a given MDP-chMSC specification, generate a global flatten MDP model?
+		- find all valid refinement hMSC models (using the file name to represent the composite abstract service)
+		- generate MDP model from MDP-chMSC for PRISM checking   
+
+
+
+
+Nov. 22, 2013
+* Imported PRISM by: 
+	- add prism.jar with all related dllLibs into classpath
+	- set environment variable DYLD_LIBRARY_PATH
+	- inspect the usage of prism.Prism
+* Add a extended MdpHighMSC for modelling the MDP based HMSC that can be converted to MDP PRISM model
+* TBD
+	- implement the MdpHighMSC isValid()
+	- concatenate MdpHighMSC?? trace language VS hmsc language
+	- instance refinement?
+	- using LTS based message passing automaton? revisit test.msc.TestImpliedScenarioSynthesiser
+	- MdpHighMSC node refinement?
+* The instance refinement is not novel as hMSC semantics has included the language replacement/refinement.
+	- Component based replacement is reflected in hMSC model as the instance replacement 
+	- Component's refinement is reflected as the instance refinement
+	- however instance's replacement/refinement show the behaviour replacement/refinement, thus, any component replace/refine can be verified by checking the dynamic hMSC 
+	
+ 
+* Reading a SCA component to a formal service component model by putting the sca composite files into a classpath
+
+
+Nov. 30, 2013
+* next plan
+	- extend the framework by Giving
+		# SCA composites
+		# for each SCA composite, provide a MDP-hMSC spec with cost annotation, and LTS consistency specification
+		# local recovery based on the previous work using weighted trace languages.
+
+* In more following details
+# INPUT 
+	- Model SCA in top down by implementing components with other composite until reaching the implementation (assuming java)
+	- For each composite file, associate an MDP-HMSC specification where each instance maps a component, and model the composite's reference and services as an instances place-holders. 
+	- In the MDP-HMSC above, the message between instances are the conversation of wires over binding.(probability and costs)
+	- For each location of the composite, i.e. taxonomy, offering a FSP specification to address consistencies.
+		- Asserts of local interfaces will be checked in the scope of interface (the interface model is derived from hMSC fsp project).
+		- Asserts of a binding/wire will be checked by the product of two interfaces models.
+		- Asserts of a map will be checked by the product of the interface and its promotion one. 
+		- Asserts of a component be checked by open RADL?
+	- For each component, assert the QoS properties.
+	
+# ANALYSIS
+	- Generate MDP from a MDP-hMSC and check the probability of failures
+	- Detect the failure or inconsistency from a certain level with a certain probability.
+	
+	
+# ACTION of RECOVERY
+	- locally fix the inconsistency due to the failure by weakly concatenate other trace languages that are derived from candidate components 
+	- Identify the impacts 
+	
+
+Dec.8, 2013
+	* Implementation of CBSE2014 paper:
+		- Each sca composite file maps one MDP-HMSC file
+		- Each sca composite is modelled by a rADL's Model with the root Ken being the composite itself
+		- Any sca component X in the composite C s.t. X is implemented by composite Y. Y is a refinement of X, thus Y is a (dynamic) subKen of C. The HMSC_Y is 
+		attached as a behaviour property of Y. 
+		- ? what if given a number of composites that are wired together? A: consider all composites components and the outmost one is the 
+	
+13Dec.
+Questions
+	- For a given sca composite, should provide protocol (with alphabets) to each RADL element? 
+		* Assume yes, then the protocol should be descirbed in FSM with the symbols with rec_x and snd_x.
+		* For simplicity (to be extended late), using impliedScenario to translate to the local protocol. 
+			This is not correct as the verification should be done between the local protocol and impliedScenario translated behaviour.
+		* For the generated impliedScenario, how to cast the instance model to the instance's different parts?e.g. PGate, RGate?
+			Answer is to set alphabets for each P/RGate with specifying the identity e.g. RootA.PGate.rec_a
+			For simplifying implementation, we can automatically extract the symbols from the impliedScenario.
+	
+	- For a binding/mapping, the proper relabeling are assumed in a simple way, i.e. direct connect mapping.
+		* Thus the binding/mapping is implemented as a HashMap<String,String> for relabeling.
+	
+	- Different from RADL, SCA use component to model adapters constraints instead of adhoc.
+		* every behaviour must be implemented in SCA component, thus a binding/mapping is a direct connector (relabeling).
+	
+	- What level HMSCs are provided to a single sca composite? the top level or detailed level?
+	
+	- If a detailed level HMSC is provided, then how to define the instances? gates? components? 
+	
+	- How to model an infinite poll component? with or without gates? 
+	 
+	
+	
+16 Dec.
+* MSCInstnace refinement and grouping within HMSC scope rather than the BMSC scope? 
+	- an refinement of an instance may lead to a hmsc based refinement of a bMSC.
+	- an refinement of an instance may lead to another hmsc based refinment of an hMSC.
+* Relabelling between the extenal symbols to the refinment internal symbols.
+* Algorithm to verify the refinement
+
+
+
+22 Dec.
+APPROACH
+	- Any Ken k's scenarios can be described in terms of HMSC in such way:
+		- HMSC consists of the instances mapped from k's P,R gates, and the first layer sub kens (k_1, k_2,...k_n)
+		- Any P gates of k connect to k_i thru P mapping, and any k_i connects to k's R gates thru R mapping.
+		- The connections between k_i and k_j (0<i,j<=n) are thru binding.
+		- From HMSC, the instance k_i that represnets a component/subken, could be refined by a set of instnaces including k_i's P&RGates and k_i's subkens (if any).
+	- Therefore, 
+		- The behaviour of an instance i is derived by the message passing automaton A_i projected on i.
+		- If i is a ken, then A_i is i's abstract machine. If i is a gate, then A_i is i's interface protocol.
+		- The consistency of i is specified for model checking against A_i.
+		- The trace language of the HMSC is 
+
+NAME CONVERSION
+	- A component is named by "C_"
+	- A serivce is named by "P_" and a reference is named by "R_"
+			
+	
+
+GENERAL IDEA
+	- GIVEN:
+		a. SCA composite with properties including behaviour (optional), consistency and QoS
+		b. HMSC (MDP or DTMC extensive) for scenarios 
+		c. Cost mapping of the actions 
+	- PROCESS:
+		a. Generate the traces from HMSC and for each instance, projecting the trace on the instance's alphabet to get the instance's behaviour
+		b. model checking the instnace's consistency 
+		c. for each trace projection automaton, if end-state consistency fails, then go back to the corresponding HMSC trace, concatenate candidate traces 
+		d. verify the consistency for each instance to make sure end-state consistency okay.
+		e. generated corresponding MDP/DTMC instance model to check the QoS or probability property, make sure they are okay. otherwise, shift to aother recovery option.
+		f. check the higher level consistency until all higher levels consistency, otherwise, alter the lower level option.
+		 
+
+
+13 Jan, 2014
+	- Allow design time deadlock resulted from the uncompleted handling failures.
+	- allow the end-inconsistency at final termination (e.g. end-inconsistency followed by the p gate's output)
+	- In recoveries, all inconsistencies must be recovered, however the abortions are allowed.
+	
+
+16 Jan, 2014
+	- all consistency specifications are set in the assert files instead of the SCA elements' properties, therefore, no need to check each elem's individual consistency
+	- compositional verification on CASIRArchMdpImpl architectrue rather than its rootken (see CASIRArchMdpImpl.ensureConsistency()) 
+	- Name convension of consistency assert: Strong_varphi=???, endstate_varphi=??? where varphi could be the sca element's name
+	- the errorExample hash <key, errorExample> where key=processID+"-"+assert, errorExample is a Vector
+	
+	
+---------------------------------------------------------------------------------
+
+29 July 2017
+	- Inconsistency localization on the components and corresponding local states
+		- Relate ePCA to components
+		- Relate the states:
+			-between abstract pca and unfolded PCA, as a labeledPCA
+			-between composite PCA and local labeledPCA, s.t. from the global stateID to local labeledPCA's state labels 
+			
+	- Construct labeled PCA from a local component for composition to reach a goal state
+		- policy driven
+		- planning driven
+		
+	- Weights specification over PCA, possibly unfolded from ePCA with cost annotation
+	
+	- PCA composition with weights computation.
+	
+	- Plug in counterexample generation tool  	
+	
+	
+8 Aug. 2017
+	- Search the abstract state in the vPFSP process can be done by:
+		1) add absStateName that maps from the vPFSP's state name 
+		2) goal state is described by both abstract state ID and abstract state name
+		
+	
+31 Aug 2017
+	_ Generated DTMC has the issue of "finish" flag which is not correct due to the super initial states.	
+
+
+14 Oct 2017
+	_ Reconfigure the AC
+	- Automate the PRISM checking and cost calculation
+	- analyze the output file when moving virtualRun to CompositeLPCA
+		* can output file just contain the data of costs and states that can be analyzed by R? 
+	-
+ 

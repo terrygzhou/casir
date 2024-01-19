@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="var" path="M2_REPO/junit/junit/4.11/junit-4.11.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" sourcepath="M2_REPO/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/jfreechart/jfreechart/0.9.18/jfreechart-0.9.18.jar"/>
+	<classpathentry kind="var" path="M2_REPO/jcommon/jcommon/0.6.4/jcommon-0.6.4.jar"/>
+	<classpathentry kind="var" path="M2_REPO/log4j/log4j/1.2.17/log4j-1.2.17.jar"/>
+	<classpathentry kind="var" path="M2_REPO/jdom/jdom/1.0/jdom-1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/ltsa_pca/LTSA-PCA.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/openRADL/openradl.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/javatuples/javatuples-1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/pipe2.5/jpowergraph-0.2-common.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/pipe2.5/jpowergraph-0.2-swing.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/pipe2.5/powerswing-0.3.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/pipe2.5/pipe2.5.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/exp4j/exp4j-0.4.3.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/prism/prism.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/prism/pepa.zip"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/guava/guava-18.0.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/diPro/dipro_obf.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/diPro/y_obf.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/aiplan/ai.plan.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/aiplan/ai.search.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/aiplan/inf.compilers.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/aiplan/inf.util.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/diPro/looks.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/diPro/forms.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/tuscany/neethi-2.0.4.jar"/>
+	<classpathentry kind="lib" path="/Users/terryzhou/Amazon Drive/casir_epca_mvn/lib/tuscany/tuscany-sca-all-1.6.2.jar"/>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="target/generated-sources/annotations">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="ignore_optional_problems" value="true"/>
+			<attribute name="m2e-apt" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="target/generated-test-sources/test-annotations">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="ignore_optional_problems" value="true"/>
+			<attribute name="m2e-apt" value="true"/>
+			<attribute name="test" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

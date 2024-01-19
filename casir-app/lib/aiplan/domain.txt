@@ -1,0 +1,26 @@
+(define (domain dwr-2l-1r-1c)
+  (:action take
+    :pre (onground)
+    :del (onground)
+    :add (holding))
+  (:action put
+    :pre (holding)
+    :del (holding)
+    :add (onground))
+  (:action load
+    :pre (holding at1)
+    :del (holding)
+    :add (onrobot))
+  (:action unload
+    :pre (at1 onrobot)
+    :del (onrobot)
+    :add (holding))
+  (:action move1
+    :pre (at2)
+    :del (at2)
+    :add (at1))
+  (:action move2
+    :pre (at1)
+    :del (at1)
+    :add (at2)))
+

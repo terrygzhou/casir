@@ -1,0 +1,27 @@
+Issues
+
+
+- OpenRADL's sca importer identifies the P/RGates without telling which P/RGates they are promoted from.
+- Modify and fix the bound issue of HighMSC.breadthFirst(HighMSC graph, LinkedList<BasicMSC> visited)
+- workaround is to duplicate the bmscs for multi-paths routing.
+- LTSA thread cannot be recycled e.g. CASIRArchMdpImpl.checkKenConsistency()
+- edu.rmit.casir.framework.checkConsistency() checks only one end-state consistency which is not complete.
+
+* to be completed
+	- FSP.importAsserts(String assertFileFullPath)
+	- rewrite the locate recovery strategies.      RecoveryConstructor.recoveryStrategies/costmapFiles
+	- Composite implementation of a SCA component i.e. C_FlightBooking being implemented by Qantas composite.
+	- P(or R) gates internal and external actions relabeling.
+	- At the B level view, get the interface behavior from the internal components.
+	  
+	
+	
+* to be improved
+	- the symbols of trace derived from hmsc can be formated as <sender, receiver, message>
+	
+	
+
+* to be fixed
+	- edu.rmit.casir.concurrency.trace.graph.getMDG() has a bug when minimising FlightBooking, 
+	identifying the dg.clone() used twice in some senarios? or the algorithm (being identified)?\
+	- found getMDG returns the correct result at the fist time invocation, but incorrect over more than one times.
