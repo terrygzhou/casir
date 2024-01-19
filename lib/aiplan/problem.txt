@@ -1,4 +1,0 @@
-(define (problem)
-  (:domain dwr-2l-1r-1c)
-  (:init at2 onground)
-  (:goal at2 onrobot))
