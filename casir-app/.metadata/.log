@@ -1,0 +1,112 @@
+!SESSION 2018-12-09 15:10:34.673 -----------------------------------------------
+eclipse.buildId=4.7.1.M20170906-1700
+java.version=1.8.0_172
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_AU
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -keyring /Users/terryzhou/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -data /Users/terryzhou/Amazon Drive/casir_epca_mvn/casir-app -product org.eclipse.epp.package.java.product -keyring /Users/terryzhou/.eclipse_keyring
+
+!ENTRY org.eclipse.ui 2 0 2018-12-09 15:10:41.623
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2018-12-09 15:10:41.623
+!MESSAGE Cannot bind to an undefined command: plug-in='org.eclipse.lsp4e', id='org.eclipse.lsp4e.togglehighlight'
+
+!ENTRY org.eclipse.core.net 1 0 2018-12-09 15:10:41.867
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jface 2 0 2018-12-09 15:10:44.363
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-12-09 15:10:44.363
+!MESSAGE A conflict occurred for COMMAND+SHIFT+T:
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@40239b34,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4e553d60,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY mega.js.tern 1 0 2018-12-09 15:10:49.653
+!MESSAGE Started Node.js v5.9.1 (V8 v4.6.85.31) in 679.4 ms
+
+!ENTRY mega.js.tern 1 0 2018-12-09 15:10:50.030
+!MESSAGE Loading tern.js...
+
+
+!ENTRY mega.js.tern 1 0 2018-12-09 15:10:50.032
+!MESSAGE Loading library ecma5
+
+
+!ENTRY mega.js.tern 1 0 2018-12-09 15:10:50.050
+!MESSAGE Loading library browser
+
+
+!ENTRY mega.js.tern 1 0 2018-12-09 15:10:50.059
+!MESSAGE Loading library ecma6
+
+
+!ENTRY mega.js.tern 1 0 2018-12-09 15:10:50.061
+!MESSAGE Loading plugin doc_comment
+
+
+!ENTRY mega.js.tern 1 0 2018-12-09 15:10:50.085
+!MESSAGE Loading plugin aura
+
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2018-12-09 15:10:50.457
+!MESSAGE Project facet jst.web has not been defined. It is used in plugin org.eclipse.jst.j2ee.
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2018-12-09 15:10:50.457
+!MESSAGE Project facet jst.webfragment has not been defined. It is used in plugin org.eclipse.jst.j2ee.
+
+!ENTRY mega.js.tern 1 0 2018-12-09 15:10:51.649
+!MESSAGE Tern.js (0.19.0) ready
+
+
+!ENTRY mega.js.tern 1 0 2018-12-09 15:11:01.909
+!MESSAGE ':core' project is not available. Please add '<module>:core</module>' to your list of partial build modules. If using para, set 'ide-search-all-files: true' and run 'para refresh'
+
+!ENTRY mega.js.tern 1 0 2018-12-09 15:11:01.931
+!MESSAGE Analyzed Lightning System JavaScript Support in 16.19 ms
+
+!ENTRY org.eclipse.jface 2 0 2018-12-09 15:11:05.031
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2018-12-09 15:11:05.031
+!MESSAGE A conflict occurred for COMMAND+W:
+Binding(COMMAND+W,
+	ParameterizedCommand(Command(org.eclipse.ui.cocoa.closeDialog,Close Dialog,
+		Closes the active Dialog,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@649df002,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialog,,,system)
+Binding(COMMAND+W,
+	ParameterizedCommand(Command(org.eclipse.ui.file.close,Close,
+		Close the active editor,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6cd7d05,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY com.salesforce.ide.core 2 0 2018-12-09 15:13:16.340
+!MESSAGE  WARN [2018-12-09 15:13:16,320] (ConnectionFactory.java:clearCache:217) - No cached connections
+
+
+!ENTRY com.salesforce.ide.core 2 0 2018-12-09 15:13:16.341
+!MESSAGE  WARN [2018-12-09 15:13:16,340] (DescribeObjectRegistry.java:clearCache:660) - No cached describes
+
+
+!ENTRY com.salesforce.ide.core 2 0 2018-12-09 15:13:16.342
+!MESSAGE  WARN [2018-12-09 15:13:16,341] (MetadataFactory.java:clearCache:125) - No cached metadata stubs
+

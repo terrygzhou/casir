@@ -1,0 +1,72 @@
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.generate(): ImporterImpl.generate() start!
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.generate(): path[./casestudy/AbstractSample] spec[RootA.composite]
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.generate(): --------------------------------------------------------------------------------
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.generate(): Building RADL model from file[RootA.composite]
+2018-12-10 14:31:42 [DEBUG] KenBasicImpl.<init>(): KenBasicImpl(B) start!
+2018-12-10 14:31:42 [DEBUG] KenBasicImpl.<init>(): ken name = B
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.processReference(): >>> creating GateR with name = Bref_1
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.processReference(): >>> creating GateR with name = BRef_2
+2018-12-10 14:31:42 [ERROR] ImporterImpl.processProperty(): Unable to convert property[BConsistency] value[] to type[uriOfBconsistency:ltsaConsistency]
+2018-12-10 14:31:42 [DEBUG] KenBasicImpl.<init>(): KenBasicImpl(C) start!
+2018-12-10 14:31:42 [DEBUG] KenBasicImpl.<init>(): ken name = C
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.processReference(): >>> creating GateR with name = DReference
+2018-12-10 14:31:42 [ERROR] ImporterImpl.processProperty(): Unable to convert property[AConsistency] value[] to type[urlOfAConsistencyFile:RootAConsistency]
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.processBindings(): start!
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.getTargets(): element name[B] children[4]
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.getTargets(): element name[C] children[2]
+2018-12-10 14:31:42 [DEBUG] ModelImpl.addKen(): start
+2018-12-10 14:31:42 [DEBUG] ModelImpl.buildNamespace(): ModelImpl.printNamespace() start!
+2018-12-10 14:31:42 [DEBUG] ModelImpl.buildNamespace(): 
+namespace -------------- start!
+model.RootA[KenCompositeImpl]
+model.RootA.RootAService[GatePBasicImpl]
+model.RootA.DReference[GateRBasicImpl]
+model.RootA.B[KenBasicImpl]
+model.RootA.B.BService[GatePBasicImpl]
+model.RootA.B.BRef_2[GateRBasicImpl]
+model.RootA.B.Bref_1[GateRBasicImpl]
+model.RootA.C[KenBasicImpl]
+model.RootA.C.CService[GatePBasicImpl]
+model.RootA.DReference_map[BindingImpl]
+model.RootA.RootAService_map[BindingImpl]
+model.RootA.BCWire[BindingImpl]
+namespace is valid!
+namespace -------------- end!
+
+2018-12-10 14:31:42 [DEBUG] ModelImpl.buildNamespace(): ModelImpl.printNamespace() end!
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.generate(): ImporterImpl.generate() start!
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.generate(): path[./casestudy/AbstractSample] spec[RootA.composite]
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.generate(): --------------------------------------------------------------------------------
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.generate(): Building RADL model from file[RootA.composite]
+2018-12-10 14:31:42 [DEBUG] KenBasicImpl.<init>(): KenBasicImpl(B) start!
+2018-12-10 14:31:42 [DEBUG] KenBasicImpl.<init>(): ken name = B
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.processReference(): >>> creating GateR with name = Bref_1
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.processReference(): >>> creating GateR with name = BRef_2
+2018-12-10 14:31:42 [ERROR] ImporterImpl.processProperty(): Unable to convert property[BConsistency] value[] to type[uriOfBconsistency:ltsaConsistency]
+2018-12-10 14:31:42 [DEBUG] KenBasicImpl.<init>(): KenBasicImpl(C) start!
+2018-12-10 14:31:42 [DEBUG] KenBasicImpl.<init>(): ken name = C
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.processReference(): >>> creating GateR with name = DReference
+2018-12-10 14:31:42 [ERROR] ImporterImpl.processProperty(): Unable to convert property[AConsistency] value[] to type[urlOfAConsistencyFile:RootAConsistency]
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.processBindings(): start!
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.getTargets(): element name[B] children[4]
+2018-12-10 14:31:42 [DEBUG] ImporterImpl.getTargets(): element name[C] children[2]
+2018-12-10 14:31:42 [DEBUG] ModelImpl.addKen(): start
+2018-12-10 14:31:42 [DEBUG] ModelImpl.buildNamespace(): ModelImpl.printNamespace() start!
+2018-12-10 14:31:42 [DEBUG] ModelImpl.buildNamespace(): 
+namespace -------------- start!
+model.RootA[KenCompositeImpl]
+model.RootA.RootAService[GatePBasicImpl]
+model.RootA.DReference[GateRBasicImpl]
+model.RootA.B[KenBasicImpl]
+model.RootA.B.BService[GatePBasicImpl]
+model.RootA.B.Bref_1[GateRBasicImpl]
+model.RootA.B.BRef_2[GateRBasicImpl]
+model.RootA.C[KenBasicImpl]
+model.RootA.C.CService[GatePBasicImpl]
+model.RootA.RootAService_map[BindingImpl]
+model.RootA.DReference_map[BindingImpl]
+model.RootA.BCWire[BindingImpl]
+namespace is valid!
+namespace -------------- end!
+
+2018-12-10 14:31:42 [DEBUG] ModelImpl.buildNamespace(): ModelImpl.printNamespace() end!
